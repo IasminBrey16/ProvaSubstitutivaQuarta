@@ -1,0 +1,27 @@
+### Cadastrar um novo funcionário
+POST https://localhost:5001/api/funcionario/create
+Content-Type: application/json
+
+{
+    "Nome": "Edeval da Silva",
+    "Cpf": "111.222.333-44"
+}
+
+### Listar todos os funcionários
+GET https://localhost:5001/api/funcionario/list
+
+### Buscar um funcionário pelo id
+GET https://localhost:5001/api/funcionario/getbyid/1
+
+### Deletar um funcionário pelo cpf
+DELETE https://localhost:5001/api/funcionario/delete/111.222.333-44
+
+### Alterar um funcionário
+PUT https://localhost:5001/api/funcionario/update
+Content-Type: application/json
+
+{
+    "Id": 1,
+    "Nome": "Edeval da Silva",
+    "Cpf": "222.333.444-55"
+}

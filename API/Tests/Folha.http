@@ -1,0 +1,31 @@
+POST https://localhost:5001/api/folha/create
+Content-Type: application/json
+
+{
+    "CpfFuncionario": "222.333.444-55",
+    "HorasTrabalhadas": 120,
+    "ValorHora": "25.90",
+    "Ano": 2021,
+    "Mes": 12
+}
+###
+GET https://localhost:5001/api/folha/list
+
+###
+GET https://localhost:5001/api/folha/getbyid/1
+
+###
+DELETE https://localhost:5001/api/folha/delete/1
+
+###
+PUT https://localhost:5001/api/folha/update
+Content-Type: application/json
+
+{
+    "Id": 1,
+    "CpfFuncionario": "222.333.444-55",
+    "HorasTrabalhadas": 126,
+    "ValorHora": "25.90",
+    "Ano": 2021,
+    "Mes": 12
+}
