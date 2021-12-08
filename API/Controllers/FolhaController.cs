@@ -33,33 +33,33 @@ namespace API.Controllers
                 }
             }
 
-            SalarioBruto = folha.HorasTrabalhadas * folha.ValorHora;
+            folha.SalarioBruto = folha.HorasTrabalhadas * folha.ValorHora;
 
-            if (SalarioBruto < 1903.98) {
+            if (folha.SalarioBruto < 1903.98) {
                 folha.ImpostoRenda = 0.00;
-            } else if (SalarioBruto > 1903.99 && SalarioBruto < 2826.65) {
+            } else if (folha.SalarioBruto > 1903.99 && folha.SalarioBruto < 2826.65) {
                 folha.ImpostoRenda = 142.80;
-            } else if (SalarioBruto > 2826.66 && SalarioBruto < 3751.05) {
+            } else if (folha.SalarioBruto > 2826.66 && folha.SalarioBruto < 3751.05) {
                 folha.ImpostoRenda = 354.80;
-            } else if (SalarioBruto > 3751.06 && SalarioBruto < 4664.68) {
+            } else if (folha.SalarioBruto > 3751.06 && folha.SalarioBruto < 4664.68) {
                 folha.ImpostoRenda = 636.13;
             } else {
                 folha.ImpostoRenda = 869.36;
             }
 
-            if (SalarioBruto < 1659.38) {
-                folha.Inss = SalarioBruto * 0.08;
-            } else if (SalarioBruto > 1659.38 && SalarioBruto < 2765.66) {
-                folha.Inss = SalarioBruto * 0.09;
-            } else if (SalarioBruto > 2765.67 && SalarioBruto < 5531.31) {
-                folha.Inss = SalarioBruto * 0.011;
+            if (folha.SalarioBruto < 1659.38) {
+                folha.Inss = folha.SalarioBruto * 0.08;
+            } else if (folha.SalarioBruto > 1659.38 && folha.SalarioBruto < 2765.66) {
+                folha.Inss = folha.SalarioBruto * 0.09;
+            } else if (folha.SalarioBruto > 2765.67 && folha.SalarioBruto < 5531.31) {
+                folha.Inss = folha.SalarioBruto * 0.011;
             } else {
                 folha.Inss = 608.44;
             }
 
-            folha.Fgts = SalarioBruto - (SalarioBruto * 0.08);
+            folha.Fgts = folha.SalarioBruto - (folha.SalarioBruto * 0.08);
 
-            folha.salarioLiquido = SalarioBruto - ImpostoRenda - Inss;
+            folha.salarioLiquido = folha.SalarioBruto - folha.ImpostoRenda - folha.Inss;
 
             //CADASTRAR FOLHA
             _context.TabelaFolhas.Add(folha);
